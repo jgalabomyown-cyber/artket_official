@@ -1,0 +1,33 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import UserProfile from './pages/UserPlatform/userProfile';
+import UserPlatform from "./pages/UserPlatform/userPlatform";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./context/AuthContext";
+import "./styles/layout.css"
+
+export default function App () {
+    return (
+        <AuthProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route
+                      path="/userPlatform"
+                      element={
+                      <ProtectedRoute>
+                          <UserPlatform />
+                      </ProtectedRoute>
+                      }
+                    />
+
+                    <Route path='/profile' element={<UserProfile />} />
+                </Routes>
+            </BrowserRouter>
+        </AuthProvider>
+    )
+}
