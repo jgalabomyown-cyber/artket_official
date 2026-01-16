@@ -4,9 +4,12 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import UserProfile from './pages/UserPlatform/userProfile';
 import UserPlatform from "./pages/UserPlatform/userPlatform";
+import RedirectToOwnProfile from './pages/UserPlatform/redirectToOwnProfile';
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import "./styles/layout.css"
+
+
 
 export default function App () {
     return (
@@ -20,12 +23,12 @@ export default function App () {
                       path="/userPlatform"
                       element={
                       <ProtectedRoute>
-                          <UserPlatform />
+                          <RedirectToOwnProfile />
                       </ProtectedRoute>
                       }
                     />
 
-                    <Route path='/profile' element={<UserProfile />} />
+                    <Route path="/user/:userId" element={<UserProfile />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

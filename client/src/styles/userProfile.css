@@ -308,5 +308,61 @@ userprofile-container {
   width: 20px;
   height: 20px;
 }
+.post-btn {
+  padding: 20px 30px;
+  width: 100%;
+  font-size: 18px;
+  background-color: aqua;
+  color: #2b0e05;
+  border-style: none;
+  cursor: pointer;
+  border-radius: 15px;
+  
+  transition: all ease 0.25s;
+}
 
+.post-btn:hover {
+  transform: scale(1.02);
+}
 
+.featured-artwork-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15px;
+}
+
+.edit-featured-artworks {
+  padding: 14px;
+}
+
+.fas-edit-icon {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.fas-edit-icon img {
+  width: 20px;
+}
+
+/* Tooltip */
+.fas-edit-tooltip {
+  position: absolute;
+  top: -60%;
+  left: -30px;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(112, 112, 112);
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: opacity 0.2s ease;
+}
+
+/* Show tooltip on hover */
+.fas-edit-icon:hover .fas-edit-tooltip {
+  opacity: 1;
+}

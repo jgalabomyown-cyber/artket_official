@@ -4,6 +4,7 @@ import LogoutButton from "../../components/LogoutButton";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { supabase } from "../../SupabaseClient";
+import { useParams } from "react-router-dom";
 
 export default function UserProfile() {
   const navigate = useNavigate();
@@ -16,6 +17,9 @@ export default function UserProfile() {
   const [bioInput, setBioInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [profilePic, setProfilePic] = useState("/images/profile.png");
+  const [uploading, setUploading] = useState(false);
+  const { userId } = useParams();
+  const isOwnProfile = user?.id === userId;
 
   useEffect(() => {
     if (!user) return;
@@ -24,7 +28,7 @@ export default function UserProfile() {
       const { data, error } = await supabase
         .from("users")
         .select("name, email, bio, profile_picture")
-        .eq("id", user.id)
+        .eq("id", userId)
         .single();
 
       if (error) {
@@ -38,13 +42,15 @@ export default function UserProfile() {
         setBioInput(data.bio || "");
 
         if(data.profile_picture) {
-          setProfilePic (data.profile_picture);
+          setProfilePic('${data.profile_picture}?t=${Date.now()}');
         }
       }
     };
 
     fetchUserData();
-  }, [user]);
+  }, [userId]);
+
+
 
   // ✅ START EDIT
   const handleEditBio = () => {
@@ -78,51 +84,43 @@ export default function UserProfile() {
   };
 
   // ✅ HANDLE PROFILE PICTURE UPLOAD
-  const handleProfilePicUpload = async (event) => {
-    const file = event.target.files[0];
+  const handleProfilePicUpload = async (e) => {
+    const file = e.target.files[0];
     if (!file) return;
+
+    setUploading(true);
 
     try {
       const fileExt = file.name.split(".").pop();
       const fileName = `${user.id}.${fileExt}`;
 
-      // Upload to bucket root
       const { error: uploadError } = await supabase.storage
         .from("profile-pictures")
         .upload(fileName, file, { upsert: true });
 
       if (uploadError) {
-        console.error("Upload error:", uploadError);
-        alert("Failed to upload profile picture: " + uploadError.message);
+        alert(uploadError.message);
         return;
       }
 
-      const { data: urlData } = supabase.storage
+      const { data } = supabase.storage
         .from("profile-pictures")
         .getPublicUrl(fileName);
 
-      const publicUrl = urlData.publicUrl;
+      const publicUrl = `${data.publicUrl}?t=${Date.now()}`;
 
-      // Update UI
       setProfilePic(publicUrl);
 
-      // Save URL to DB
-      const { error: updateError } = await supabase
+      await supabase
         .from("users")
         .update({ profile_picture: publicUrl })
         .eq("id", user.id);
 
-      if (updateError) {
-        console.error("DB update error:", updateError);
-        alert("Uploaded but failed to save URL to the database");
-        return;
-      }
-
-      alert("Profile picture updated successfully!");
-
     } catch (err) {
-      console.error("Unexpected error:", err);
-      alert("Unexpected upload error");
+      console.error(err);
+    } finally {
+      setUploading(false);
+      e.target.value = ""; // ✅ critical fix
     }
   };
 
@@ -137,7 +135,8 @@ export default function UserProfile() {
 
           <div className="avatar-container">
             <img src={profilePic} alt="Profile" className="userprofile-avatar" />
-
+          {isOwnProfile && (
+            <>
             <label htmlFor="profile-pic-upload" className="upload-icon">
               <img src="/images/upload-image.png" alt="Upload" />
             </label>
@@ -149,6 +148,8 @@ export default function UserProfile() {
               onChange={handleProfilePicUpload}
               style={{ display: 'none' }}
             />
+            </>
+          )}
           </div>
 
           <div className="user-profile-details">
@@ -166,7 +167,7 @@ export default function UserProfile() {
                 className="bio-input"
               />
               <div className="edit-bio-opt">
-                <button onClick={handleSaveBio} className="save-bio-btn" disabled={loading}>tas
+                <button onClick={handleSaveBio} className="save-bio-btn" disabled={loading}>
                   {loading ? "Saving..." : "Save"}
                 </button>
                 <button onClick={handleCancelEdit} className="cancel-bio-btn">Cancel</button>
@@ -176,7 +177,9 @@ export default function UserProfile() {
           ) : (
             <>
               <p className="userprofile-bio">{userBio}</p>
+              {isOwnProfile && (
               <button className="edit-bio-btn" onClick={handleEditBio}>Edit Bio</button>
+              )}
             </>
           )}
 
@@ -213,7 +216,18 @@ export default function UserProfile() {
           </div>
 
           {/* PORTFOLIO */}
-          <h3 className="section-title">Artist Portfolio</h3>
+          <button className="post-btn">POST</button>
+          <div className="featured-artwork-section">
+            <h3 className="section-title">Featured Artworks</h3>
+
+            <div className="edit-featured-artworks">
+              <button className="fas-edit-icon">
+                <img src="/images/drawCreate-icon.png" alt="Edit" />
+                <span className="fas-edit-tooltip">Edit Featured Artworks</span>
+              </button>
+            </div>
+          </div>
+
           <div className="portfolio-grid">
             <img src="/images/sample1.png" alt="" />
             <img src="/images/sample2.png" alt="" />
