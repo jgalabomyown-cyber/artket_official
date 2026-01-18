@@ -3,13 +3,11 @@ import LandingPage from './pages/LandingPage';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import UserProfile from './pages/UserPlatform/userProfile';
-import UserPlatform from "./pages/UserPlatform/userPlatform";
+import UserHomepage from "./pages/UserPlatform/userHomepage";
 import RedirectToOwnProfile from './pages/UserPlatform/redirectToOwnProfile';
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import "./styles/layout.css"
-
-
 
 export default function App () {
     return (
@@ -20,7 +18,7 @@ export default function App () {
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/login" element={<Login />} />
                     <Route
-                      path="/userPlatform"
+                      path="/userHomepage"
                       element={
                       <ProtectedRoute>
                           <RedirectToOwnProfile />

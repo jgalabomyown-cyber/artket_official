@@ -5,7 +5,7 @@ import Sidebar from "../../components/Sidebar";
 import { useAuth } from "../../context/AuthContext";
 import { supabase } from "../../SupabaseClient";
 
-const UserPlatform = () => {
+const UserHomepage = () => {
   const { user } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profilePic, setProfilePic] = useState("/images/profile.png");
@@ -160,4 +160,4 @@ const UserPlatform = () => {
   );
 }
 
-export default UserPlatform;
+export default UserHomepage;

@@ -22,7 +22,10 @@ export default function UserProfile() {
   const isOwnProfile = user?.id === userId;
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setProfilePic("/images/profile.png");
+      return;
+    }
 
     const fetchUserData = async () => {
       const { data, error } = await supabase
@@ -42,13 +45,13 @@ export default function UserProfile() {
         setBioInput(data.bio || "");
 
         if(data.profile_picture) {
-          setProfilePic('${data.profile_picture}?t=${Date.now()}');
+          setProfilePic(`${data.profile_picture}?t=${Date.now()}`);
         }
       }
     };
 
     fetchUserData();
-  }, [userId]);
+  }, [userId, user]);
 
 
 

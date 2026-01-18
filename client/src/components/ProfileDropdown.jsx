@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import LogoutButton from "./LogoutButton";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function ProfileDropdown() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-
+  const { user } = useAuth();
+ 
   return (
     <div className="profile-dropdown-container">
       {/* Profile Icon + Arrow */}
@@ -23,7 +25,7 @@ export default function ProfileDropdown() {
             </button>
             </li>
 
-          <li onClick={() => navigate("/profile")}>Profile</li>
+          <li onClick={() => navigate(`/user/${user.id}`)}>Profile</li>
           <li onClick={() => navigate("/settings")}>Settings</li>
           <li onClick={() => navigate("/support")}>Ask Support</li>
           <li onClick={() => navigate("/terms")}>Terms & Conditions</li>

@@ -322,7 +322,8 @@ userprofile-container {
 }
 
 .post-btn:hover {
-  transform: scale(1.02);
+  transform: scale(1.015);
+  border-radius: 8px;
 }
 
 .featured-artwork-section {

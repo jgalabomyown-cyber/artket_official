@@ -37,7 +37,7 @@ export default function Login() {
       setSuccess("Login successful!");
 
       // 🔥 Redirect after successful login
-      navigate("/userPlatform");
+      navigate("/UserHomepage");
     } catch (err) {
       setError(err.message || "Login failed. Please try again.");
     } finally {
