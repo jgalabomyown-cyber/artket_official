@@ -17,7 +17,6 @@ export default function UserProfile() {
   const [bioInput, setBioInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [profilePic, setProfilePic] = useState("/images/profile.png");
-  const [uploading, setUploading] = useState(false);
   const { userId } = useParams();
   const isOwnProfile = user?.id === userId;
 
@@ -91,8 +90,6 @@ export default function UserProfile() {
     const file = e.target.files[0];
     if (!file) return;
 
-    setUploading(true);
-
     try {
       const fileExt = file.name.split(".").pop();
       const fileName = `${user.id}.${fileExt}`;
@@ -122,7 +119,6 @@ export default function UserProfile() {
     } catch (err) {
       console.error(err);
     } finally {
-      setUploading(false);
       e.target.value = ""; // ✅ critical fix
     }
   };

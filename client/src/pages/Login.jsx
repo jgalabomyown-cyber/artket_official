@@ -27,7 +27,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const { data, error: loginError } = await supabase.auth.signInWithPassword({
+      const { error: loginError } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
@@ -54,7 +54,7 @@ export default function Login() {
     setError("");
     setSuccess("");
     try {
-      const { data, error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
+      const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
         redirectTo: window.location.origin + "/reset-password",
       });
       if (resetError) throw resetError;
