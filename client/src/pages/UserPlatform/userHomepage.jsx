@@ -1,50 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../styles/layout.css";
 import TopNavbar from "../../components/TopNavbar";
 import Sidebar from "../../components/Sidebar";
-import { useAuth } from "../../context/AuthContext";
-import { supabase } from "../../SupabaseClient";
 
 const UserHomepage = () => {
-  const { user } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [profilePic, setProfilePic] = useState("/images/profile.png");
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
-
-  useEffect(() => {
-    if (!user) return;
-
-    const fetchUserProfile = async () => {
-      const { data, error } = await supabase
-      .from("users")
-      .select("profile_picture")
-      .eq("id", user.id)
-      .single();
-
-      if (error) {
-        console.error("Error fetching user profile picture:", error);
-      } else if (data && data.profile_picture) {
-        setProfilePic(data.profile_picture);
-      }
-    };
-
-    fetchUserProfile();
-  }, [user]);
 
   return (
     <div>
       <TopNavbar toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       <div className="category-nav">
-        <button className="active"><a href="#">ALL</a></button>
-        <button><a href="#">GRAPHIC DESIGN</a></button>
-        <button><a href="#">COMMISSION DRAWING</a></button>
-        <button><a href="#">DIGITAL ART</a></button>
-        <button><a href="#">VIDEO EDITING</a></button>
-        <button><a href="#">PHOTO MANIPULATION</a></button>
+        <button className="active">ALL</button>
+        <button>GRAPHIC DESIGN</button>
+        <button>COMMISSION DRAWING</button>
+        <button>DIGITAL ART</button>
+        <button>VIDEO EDITING</button>
+        <button>PHOTO MANIPULATION</button>
       </div>
 
       {/* GALLERY FLEX */}

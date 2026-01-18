@@ -15,12 +15,12 @@ const LandingPage = () => {
       <TopNavbar toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       <div className="category-nav">
-        <button className="active"><a href="#">ALL</a></button>
-        <button><a href="#">GRAPHIC DESIGN</a></button>
-        <button><a href="#">COMMISSION DRAWING</a></button>
-        <button><a href="#">DIGITAL ART</a></button>
-        <button><a href="#">VIDEO EDITING</a></button>
-        <button><a href="#">PHOTO MANIPULATION</a></button>
+        <button className="active">ALL</button>
+        <button>GRAPHIC DESIGN</button>
+        <button>COMMISSION DRAWING</button>
+        <button>DIGITAL ART</button>
+        <button>VIDEO EDITING</button>
+        <button>PHOTO MANIPULATION</button>
       </div>
 
       {/* GALLERY FLEX */}

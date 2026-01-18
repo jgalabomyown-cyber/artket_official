@@ -1,33 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useAuth } from "../context/AuthContext";
 import ProfileDropdown from "./ProfileDropdown";
-import LogoutButton from "./LogoutButton";
-import { supabase } from "../SupabaseClient";
+//import LogoutButton from "./LogoutButton";
 
 export default function TopNavbar({ toggleSidebar }) {
-  const { isUserValid, loading, user } = useAuth();
-  const [profilePic, setProfilePic] = useState("/images/profile.png");
-
-  // Fetch profile picture from Supabase
-  useEffect(() => {
-    if (!user) return;
-
-    const fetchProfilePic = async () => {
-      const { data, error } = await supabase
-        .from("users")
-        .select("profile_picture")
-        .eq("id", user.id)
-        .single();
-
-      if (error) {
-        console.error("Error fetching profile picture:", error);
-      } else if (data?.profile_picture) {
-        setProfilePic(data.profile_picture);
-      }
-    };
-
-    fetchProfilePic();
-  }, [user]);
+  const { isUserValid, loading, profilePic } = useAuth();
 
   if (loading) {
     return null; // or a spinner/loading component
@@ -59,13 +36,13 @@ export default function TopNavbar({ toggleSidebar }) {
         </div>
 
         <div className="super">
-          <a href="#">
+          <a href="/store">
             <span className="store">
               <img src="/images/shop.png" alt="" style={{ width: "20px", marginRight: "18px" }} />
               SHOP
             </span>
           </a>
-          <a href="#" className="wish">
+          <a href="/draWish" className="wish">
             <img src="/images/draWish-icon.png" alt="" style={{ width: "20px", marginRight: "5px" }} />
             DRAWISH
           </a>
@@ -88,7 +65,7 @@ export default function TopNavbar({ toggleSidebar }) {
       <div className="content-header">
         <p>
           Exploring Graphic Design?{" "}
-          <a href="#" style={{ textDecoration: "none" }}>
+          <a href="/explore" style={{ textDecoration: "none" }}>
             <span className="highlight">
               <img
                 src="/images/drawCreate-icon.png"

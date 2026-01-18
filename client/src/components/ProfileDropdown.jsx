@@ -3,7 +3,7 @@ import LogoutButton from "./LogoutButton";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
-export default function ProfileDropdown() {
+export default function ProfileDropdown({ profilePic }) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -12,7 +12,7 @@ export default function ProfileDropdown() {
     <div className="profile-dropdown-container">
       {/* Profile Icon + Arrow */}
       <button className="profile-toggle" onClick={() => setOpen(!open)}>
-        <img src="/images/profile.png" alt="Profile" className="profile-avatar" />
+        <img src={profilePic} alt="Profile" className="profile-avatar" />
         <img src="/images/arrow.png" alt="Open" className="profile-arrow" />
       </button>
 
