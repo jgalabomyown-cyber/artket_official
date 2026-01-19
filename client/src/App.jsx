@@ -3,6 +3,7 @@ import LandingPage from './pages/LandingPage';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import UserProfile from './pages/UserPlatform/userProfile';
+import UserHomepage from './pages/UserPlatform/userHomepage';
 
 import RedirectToOwnProfile from './pages/UserPlatform/redirectToOwnProfile';
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -21,7 +22,7 @@ export default function App () {
                       path="/userHomepage"
                       element={
                       <ProtectedRoute>
-                          <RedirectToOwnProfile />
+                          <UserHomepage />
                       </ProtectedRoute>
                       }
                     />
