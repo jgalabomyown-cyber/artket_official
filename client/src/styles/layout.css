@@ -905,3 +905,287 @@ body {
 .video-summary p {
   font-size: 20px;
 }
+
+/* RESPONSIVE NAVBAR STYLES */
+
+/* Tablet and small screens (768px and below) */
+@media (max-width: 768px) {
+  .top-nav {
+    padding: 10px 15px;
+    flex-wrap: wrap;
+  }
+
+  .left {
+    gap: 10px;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .brand h1 {
+    font-size: 18px;
+  }
+
+  .brand span {
+    font-size: 10px;
+  }
+
+  .search {
+    order: 3;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search input {
+    width: 100%;
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .search button {
+    padding: 8px 15px;
+  }
+
+  .super {
+    gap: 5px;
+    margin: 0;
+  }
+
+  .super a {
+    font-size: 14px;
+    margin-right: 15px;
+  }
+
+  .super a img {
+    width: 16px !important;
+    margin-right: 8px !important;
+  }
+
+  .auth-buttons a {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  .auth-buttons button.signup {
+    padding: 8px 12px;
+    margin-left: 10px;
+  }
+
+  .signup a {
+    font-size: 12px;
+  }
+
+  .auth-buttons .signin {
+    font-size: 12px;
+  }
+
+  .profile-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .content-header {
+    padding: 8px 15px 8px 50px;
+  }
+
+  .content-header p {
+    font-size: 14px;
+    padding: 10px 10px 10px 0;
+  }
+
+  .content-header .highlight {
+    font-size: 14px;
+  }
+
+  .content-header .highlight img {
+    width: 16px !important;
+    margin-left: 10px !important;
+  }
+}
+
+/* Mobile screens (576px and below) */
+@media (max-width: 576px) {
+  .top-nav {
+    padding: 8px 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .left {
+    gap: 8px;
+    width: 100%;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .brand h1 {
+    font-size: 14px;
+  }
+
+  .brand span {
+    font-size: 9px;
+    display: none;
+  }
+
+  .search {
+    order: 3;
+    width: 100%;
+    margin-top: 8px;
+    gap: 3px;
+  }
+
+  .search input {
+    flex: 1;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .search button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .super {
+    gap: 5px;
+    width: 100%;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+
+  .super a {
+    font-size: 11px;
+    margin-right: 10px;
+  }
+
+  .super a img {
+    width: 14px !important;
+    margin-right: 5px !important;
+  }
+
+  .auth-buttons {
+    width: 100%;
+    margin-top: 8px;
+    display: flex;
+    gap: 5px;
+  }
+
+  .auth-buttons a {
+    font-size: 11px;
+    margin-left: 0;
+  }
+
+  .auth-buttons button.signup {
+    padding: 6px 10px;
+    margin-left: 0;
+  }
+
+  .signup a {
+    font-size: 11px;
+  }
+
+  .auth-buttons .signin {
+    font-size: 11px;
+  }
+
+  .profile-dropdown-container {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .profile-avatar {
+    width: 35px;
+    height: 35px;
+  }
+
+  .profile-arrow {
+    width: 12px;
+  }
+
+  .content-header {
+    padding: 8px 10px 8px 45px;
+  }
+
+  .content-header p {
+    font-size: 12px;
+    padding: 8px 8px 8px 0;
+  }
+
+  .content-header .highlight {
+    font-size: 12px;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .content-header .highlight img {
+    width: 14px !important;
+    margin-left: 0 !important;
+  }
+}
+
+/* Extra small screens (360px and below) */
+@media (max-width: 360px) {
+  .top-nav {
+    padding: 6px 8px;
+  }
+
+  .left {
+    gap: 6px;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand h1 {
+    font-size: 12px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .hamburger {
+    font-size: 18px;
+  }
+
+  .search input {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  .search button {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+
+  .super a {
+    font-size: 10px;
+    margin-right: 8px;
+  }
+
+  .auth-buttons {
+    gap: 3px;
+  }
+
+  .auth-buttons a {
+    font-size: 10px;
+  }
+
+  .auth-buttons button.signup {
+    padding: 5px 8px;
+  }
+
+  .content-header {
+    padding: 6px 8px 6px 40px;
+  }
+
+  .content-header p {
+    font-size: 10px;
+  }
+}
