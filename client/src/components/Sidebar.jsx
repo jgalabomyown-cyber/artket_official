@@ -18,7 +18,7 @@ export default function Sidebar({ isOpen }) {
         {/* Home */}
         <li>
           <a href="/" className="active">
-            <img src="/images/home-icon.png" style={{ width: "24px", marginRight: "10px" }} />
+            <img src="/images/home-icon.png" alt="" style={{ width: "24px", marginRight: "10px" }} />
             Home
           </a>
         </li>
@@ -26,7 +26,7 @@ export default function Sidebar({ isOpen }) {
         {/* Dropdown */}
         <li className="dropdown">
           <button className="dropdown-btn" onClick={toggleDropdown}>
-            <img src="/images/draw.png" style={{ width: "22px", marginRight: "10px" }} />
+            <img src="/images/draw.png" alt="" style={{ width: "22px", marginRight: "10px" }} />
             Draw
           </button>
 
@@ -34,14 +34,14 @@ export default function Sidebar({ isOpen }) {
             <ul className="dropdown-content">
               <li>
                 <a href="/draWish">
-                  <img src="/images/draWish-icon.png" style={{ width: "18px", marginRight: "10px" }} />
+                  <img src="/images/draWish-icon.png" alt="" style={{ width: "18px", marginRight: "10px" }} />
                   DraWish
                 </a>
               </li>
 
               <li>
                 <a href="/drawCreate">
-                  <img src="/images/drawCreate-icon.png" style={{ width: "18px", marginRight: "10px" }} />
+                  <img src="/images/drawCreate-icon.png" alt="" style={{ width: "18px", marginRight: "10px" }} />
                   DrawCreate
                 </a>
               </li>
@@ -52,7 +52,7 @@ export default function Sidebar({ isOpen }) {
         {/* Artists */}
         <li>
           <a href="/artists">
-            <img src="/images/artists.png" style={{ width: "22px", marginRight: "10px" }} />
+            <img src="/images/artists.png" alt="" style={{ width: "22px", marginRight: "10px" }} />
             Artists
           </a>
         </li>
@@ -60,7 +60,7 @@ export default function Sidebar({ isOpen }) {
         {/* Guild */}
         <li>
           <a href="/guild">
-            <img src="/images/Guild-icon.png" style={{ width: "22px", marginRight: "10px" }} />
+            <img src="/images/Guild-icon.png" alt="" style={{ width: "22px", marginRight: "10px" }} />
             Guilds
           </a>
         </li>
