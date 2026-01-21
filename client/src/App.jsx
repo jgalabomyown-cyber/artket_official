@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import "./styles/layout.css"
 
+
 export default function App () {
     return (
         <AuthProvider>

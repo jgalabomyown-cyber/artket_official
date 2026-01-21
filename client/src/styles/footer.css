@@ -1,0 +1,14 @@
+/* =========================
+   FOOTER
+========================= */
+
+.footer-link {
+  color: #f8f9fa;
+  text-decoration: none;
+}
+
+.social-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}

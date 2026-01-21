@@ -1,0 +1,15 @@
+/* =========================
+   INTRO VIDEO SECTION
+========================= */
+
+.introduction-video {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 100px;
+}
+
+.video-summary h1 {
+  font-size: 50px;
+  font-weight: 900;
+}
