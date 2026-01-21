@@ -8,20 +8,36 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+/* ===============================
+   HEADER
+   =============================== */
 
 header {
-  background: linear-gradient(132deg, #000000,#00ff00, #0000ff,#e60073,#ff0000,#ffffff);
+  background: linear-gradient(
+    132deg,
+    #000000,
+    #00ff00,
+    #0000ff,
+    #e60073,
+    #ff0000,
+    #ffffff
+  );
   animation: BackgroundGradient 15s ease infinite;
   display: flex;
+  align-items: center;
+  justify-content: space-around;
   height: 100px;
   background-size: 200% 200%;
-  justify-content: space-around;
 }
+
+/* ===============================
+   LEFT NAV
+   =============================== */
 
 .left-nav {
   display: flex;
   align-items: center;
-  gap: 30px; /* 👈 THIS is the spacing you want */
+  gap: 30px;
 }
 
 .hamburger-container {
@@ -31,15 +47,11 @@ header {
   align-items: center;
 }
 
-
 .hamburger-menu-btn {
   width: 100%;
   height: 60px;
   background: transparent;
   border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
 
@@ -48,23 +60,18 @@ header {
   color: white;
 }
 
+/* ===============================
+   LOGO + BRAND
+   =============================== */
+
 .logo-and-brand {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 10px;
 }
 
-.logo-and-brand h1 {
-  color: orange;
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-size: 24px;
-}
-
-.logo-and-brand h3 {
-  color: white;
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-size: 18px;
+.logo-and-brand img {
+  width: 80px;
 }
 
 .brand-name {
@@ -72,164 +79,258 @@ header {
   flex-direction: column;
 }
 
-.logo-and-brand img{
-  width: 80px;
+.logo-and-brand h1 {
+  color: orange;
+  font-family: 'Montserrat Alternates','sans-serif';
+  font-size: 24px;
 }
 
-.search-bar-and-btn {
+.logo-and-brand h3 {
+  color: white;
+  font-family: 'Montserrat Alternates','sans-serif';
+  font-size: 18px;
+}
+
+/* ===============================
+   SEARCH + SHOP WRAPPER
+   =============================== */
+
+.mobile-search-row {
+  width: 600px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 14px;
+  justify-content: space-between;
+}
+
+/* ===============================
+   SEARCH
+   =============================== */
+
+.search-bar-and-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .search-bar {
+  
   padding: 12px 14px;
   width: 300px;
   border-radius: 8px;
-  border-style: none;
-  background-color: white;
-  color: black;
-  font-size: 14px;;
-}
-
-.search-bar-and-btn img{
-  width: 30px;
-  cursor: pointer;
+  border: none;
+  font-size: 14px;
 }
 
 .search-btn {
-  background-color: transparent;
-  border-style: none;
+  position: absolute;
+  background: transparent;
+  border: none;
   cursor: pointer;
+  right: 6px;
+  border-left: 1px solid black;
+  padding: 0px 0px 0px 4px;
 }
 
 .fa-search {
-  font-size: 22px;
-  color: white;
+  font-size: 18px;
+  color: rgb(78, 78, 78);
 }
+
+/* ===============================
+   SHOP & DRAW
+   =============================== */
 
 .shop-and-draw-opts {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 20px;
 }
 
 .shop-and-draw-opts a {
   display: flex;
   align-items: center;
+  gap: 6px;
   text-decoration: none;
   color: white;
 }
 
-.shop-and-draw-opts a img{
+.shop-and-draw-opts img {
   width: 24px;
 }
+
+/* ===============================
+   AUTH BUTTONS
+   =============================== */
 
 .sign-in-sign-up {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 20px 0;
-  gap: 15px;
+  gap: 30px;
 }
 
 .sign-in-sign-up a {
   text-decoration: none;
-  color: white;
-  letter-spacing: 1px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
 }
 
-.sign-in-sign-up .sign-in-btn {
-  background-color: transparent;
-
+.sign-in-btn {
+  color: white;
 }
 
-.sign-in-sign-up .sign-up-btn {
-  background-color: orange;
-  border: none;
-  border: 2px solid orange;
+.sign-up-btn {
+  background-color: rgb(0, 124, 62);
   border-radius: 6px;
   padding: 12px 16px;
-  color: brown;
-  
 }
 
-@keyframes BackgroundGradient {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+.sign-up-btn {
+  color: rgb(251, 255, 4);
 }
 
 /* ===============================
-   MOBILE RESPONSIVE NAVBAR
+   ANIMATION
+   =============================== */
+
+@keyframes BackgroundGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===============================
+   TABLET & MOBILE (≤768px)
    =============================== */
 
 @media (max-width: 768px) {
-
   header {
+    display: flex;
     flex-wrap: wrap;
-    height: auto;
+    align-items: center;
     padding: 12px 16px;
-    gap: 12px;
+    height: auto;
+    gap: 10px;
   }
 
-  /* LEFT SECTION */
+  .logo-and-brand img{
+    width: 50;
+  }
+
+  .logo-and-brand h1 {
+    font-size: 15px;
+  }
+
+  .logo-and-brand h3 {
+    font-size: 12px;
+  }
+
+  /* ---------- ROW 1 ---------- */
+
   .left-nav {
+    order: 1;
+    flex: 1;
+    justify-content: flex-start;
+  }
+
+  .sign-in-sign-up {
+    order: 2;
+    justify-content: flex-end;
+  }
+
+  /* ---------- ROW 2 ---------- */
+
+  .mobile-search-row {
+    order: 3;
+    width: 100%;
+    display: flex;
+    align-items: center;
     gap: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .search-bar-and-btn {
+    flex: 1;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-and-draw-opts a span{
+    display: none;
+  }
+
+  .shop-and-draw-opts img {
+    width: 20px;
   }
 
   .logo-and-brand img {
     width: 50px;
   }
+}
 
-  .logo-and-brand h1 {
-    font-size: 18px;
+@media (max-width:480px) {
+  .brand-name h1 {
+    font-size: 13px;
+  }
+
+  .brand-name h3 {
+    font-size: 10px;
+  }
+}
+
+/* ===============================
+   EXTRA SMALL (≤380px)
+   =============================== */
+
+@media (max-width: 400px) {
+
+  /* TOP ROW: hamburger + logo */
+
+  .brand-name {
     display: none;
   }
 
-  .logo-and-brand h3 {
-    font-size: 14px;
-    display: none;
-  }
-
-  /* SEARCH BAR — NEW ROW */
-  .search-bar-and-btn {
-    order: 3;
+  /* SECOND ROW: shop/draw + search */
+  .mobile-search-row {
     width: 100%;
-    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* SHOP & DRAW ON LEFT */
+  .shop-and-draw-opts {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .shop-and-draw-opts img {
+    width: 22px;
+  }
+
+  /* SEARCH TAKES REMAINING SPACE */
+  .search-bar-and-btn {
+    display: flex;
+    flex: 1;
+    gap: 6px;
   }
 
   .search-bar {
     width: 100%;
-    max-width: 100%;
-    border-radius: 20px;
+    font-size: 13px;
+    padding: 10px 12px;
   }
 
-  /* SHOP & DRAWISH */
-  .shop-and-draw-opts {
-    gap: 14px;
+  .fa-search {
+    font-size: 18px;
   }
 
-  .shop-and-draw-opts span {
-    display: none; /* icons only */
-  }
-
-  .shop-and-draw-opts a img {
-    width: 22px;
-  }
-
-  /* AUTH BUTTONS */ 
-
-  .sign-in-sign-up {
-    padding: 0px;
-  }
-
-  .sign-in-sign-up a{
-    font-size: 12px;
-  }
-
+  /* OPTIONAL: hide auth buttons here if needed */
 }
+

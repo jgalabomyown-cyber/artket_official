@@ -6,22 +6,22 @@ import "../styles/navbar.css";
 export default function TopNavbar({ toggleSidebar }) {
   const { isUserValid, loading, profilePic } = useAuth();
 
-  if (loading) {
-    return null;
-  }
+  if (loading) return null;
 
   return (
     <header>
-        <div className="left-nav">
-          <div className="hamburger-container">
-            <button
-              className="hamburger-menu-btn"
-              onClick={toggleSidebar}
-              aria-label="Toggle sidebar"
-            >
-              <i className="fa-solid fa-bars"></i>
-            </button>
-          </div>
+
+      {/* LEFT SECTION */}
+      <div className="left-nav">
+        <div className="hamburger-container">
+          <button
+            className="hamburger-menu-btn"
+            onClick={toggleSidebar}
+            aria-label="Toggle sidebar"
+          >
+            <i className="fa-solid fa-bars"></i>
+          </button>
+        </div>
 
         <div className="logo-and-brand">
           <img src="images/logo.png" alt="Call Inside logo" />
@@ -31,30 +31,35 @@ export default function TopNavbar({ toggleSidebar }) {
           </div>
         </div>
       </div>
-      
-      <div className="search-bar-and-btn">
-        <input
-          type="text"
-          placeholder="Search here"
-          className="search-bar"
-          name="search-bar"
-        />
-        <button className="search-btn" aria-label="Search">
-          <i className="fas fa-search"></i>
-        </button>
+
+      {/* SEARCH + SHOP ROW */}
+      <div className="mobile-search-row">
+
+        <div className="shop-and-draw-opts">
+          <a href="/shop">
+            <img src="images/shop.png" alt="Shop" />
+            <span>SHOP</span>
+          </a>
+          <a href="/drawish">
+            <img src="images/draWish-icon.png" alt="Drawish" />
+            <span>DRAWISH</span>
+          </a>
+        </div>
+
+        <div className="search-bar-and-btn">
+          <input
+            type="text"
+            placeholder="Search here"
+            className="search-bar"
+          />
+          <button className="search-btn" aria-label="Search">
+            <i className="fas fa-search"></i>
+          </button>
+        </div>
+
       </div>
 
-      <div className="shop-and-draw-opts">
-        <a href="/shop">
-          <img src="images/shop.png" alt="Shop" />
-          <span>SHOP</span>
-        </a>
-        <a href="/drawish">
-          <img src="images/draWish-icon.png" alt="Drawish" />
-          <span>DRAWISH</span>
-        </a>
-      </div>
-
+      {/* AUTH / PROFILE */}
       {!isUserValid && (
         <div className="sign-in-sign-up">
           <a href="/login" className="sign-in-btn">SIGN-IN</a>
@@ -62,9 +67,8 @@ export default function TopNavbar({ toggleSidebar }) {
         </div>
       )}
 
-      {isUserValid && (
-        <ProfileDropdown profilePic={profilePic} />
-      )}
+      {isUserValid && <ProfileDropdown profilePic={profilePic} />}
+
     </header>
   );
 }
