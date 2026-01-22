@@ -237,6 +237,10 @@ header {
   order: 2;
   justify-content: flex-end;
 }
+
+.sign-in-sign-up {
+  gap: 6px;
+}
   /* ---------- ROW 2 ---------- */
 
   .mobile-search-row {
