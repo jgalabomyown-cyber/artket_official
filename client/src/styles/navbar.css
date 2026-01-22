@@ -15,11 +15,11 @@ body {
 header {
   background: linear-gradient(
     132deg,
-    #000000,
-    #00ff00,
-    #0000ff,
-    #e60073,
-    #ff0000,
+    #301700,
+    #532901,
+    #994a00,
+    #c77528,
+    #e7a262,
     #ffffff
   );
   animation: BackgroundGradient 15s ease infinite;
@@ -233,11 +233,10 @@ header {
     justify-content: flex-start;
   }
 
-  .sign-in-sign-up {
-    order: 2;
-    justify-content: flex-end;
-  }
-
+.profile-container {
+  order: 2;
+  justify-content: flex-end;
+}
   /* ---------- ROW 2 ---------- */
 
   .mobile-search-row {

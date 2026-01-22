@@ -59,16 +59,17 @@ export default function TopNavbar({ toggleSidebar }) {
 
       </div>
 
+      <div className="profile-container">
       {/* AUTH / PROFILE */}
-      {!isUserValid && (
-        <div className="sign-in-sign-up">
-          <a href="/login" className="sign-in-btn">SIGN-IN</a>
-          <a href="/signup" className="sign-up-btn">SIGN-UP</a>
-        </div>
-      )}
+        {!isUserValid && (
+          <div className="sign-in-sign-up">
+            <a href="/login" className="sign-in-btn">SIGN-IN</a>
+            <a href="/signup" className="sign-up-btn">SIGN-UP</a>
+          </div>
+        )}
 
-      {isUserValid && <ProfileDropdown profilePic={profilePic} />}
-
+        {isUserValid && <ProfileDropdown profilePic={profilePic} />}
+      </div>
     </header>
   );
 }
