@@ -214,7 +214,7 @@ header {
   }
 
   .logo-and-brand img{
-    width: 50;
+    width: 100px;
   }
 
   .logo-and-brand h1 {
@@ -233,14 +233,14 @@ header {
     justify-content: flex-start;
   }
 
-.profile-container {
-  order: 2;
-  justify-content: flex-end;
-}
+  .profile-container {
+    order: 2;
+    justify-content: flex-end;
+  }
 
-.sign-in-sign-up {
-  gap: 6px;
-}
+  .sign-in-sign-up {
+    gap: 6px;
+  }
   /* ---------- ROW 2 ---------- */
 
   .mobile-search-row {
@@ -263,8 +263,16 @@ header {
 }
 
 @media (max-width: 480px) {
+  .fa-bars {
+    font-size: 18px;
+    color: white;
+  }
   .shop-and-draw-opts a span{
     display: none;
+  }
+
+  .left-nav {
+    gap: 15px;
   }
 
   .shop-and-draw-opts img {
@@ -272,11 +280,9 @@ header {
   }
 
   .logo-and-brand img {
-    width: 50px;
+    width: 70px;
   }
-}
 
-@media (max-width:480px) {
   .brand-name h1 {
     font-size: 13px;
   }
@@ -284,7 +290,12 @@ header {
   .brand-name h3 {
     font-size: 10px;
   }
+
+  .sign-in-sign-up a{
+    font-size: 12px;
+  }
 }
+
 
 /* ===============================
    EXTRA SMALL (≤380px)
@@ -294,22 +305,30 @@ header {
 
   /* TOP ROW: hamburger + logo */
 
-  .brand-name {
-    display: none;
+
+  .logo-and-brand img {
+    width: 50px;
   }
+
+  .brand-name h1 {
+    font-size: 10px;
+  }
+
+  .brand-name h3 {
+    font-size: 8px;
+  } 
 
   /* SECOND ROW: shop/draw + search */
   .mobile-search-row {
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
   }
 
   /* SHOP & DRAW ON LEFT */
   .shop-and-draw-opts {
     display: flex;
-    gap: 6px;
     flex-shrink: 0;
   }
 
@@ -332,6 +351,11 @@ header {
 
   .fa-search {
     font-size: 18px;
+  }
+
+  .sign-in-sign-up a {
+    font-size: 10px;
+    padding: 6px 8px;
   }
 
   /* OPTIONAL: hide auth buttons here if needed */
