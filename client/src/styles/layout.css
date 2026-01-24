@@ -193,6 +193,7 @@ body {
   height: 60px;
   border-radius: 50%;
   background-color: white;
+  object-fit: cover;
 }
 
 .profile-arrow {
