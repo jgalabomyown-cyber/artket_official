@@ -4,11 +4,13 @@
 
 @media(max-width: 500px) {
   .mobile-icon-nav {
-    display: none;
-    position: fixed;           /*typical view of icon-nav*/
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: 60px;
-    min-width: auto;
+    box-sizing: border-box;    /* Include padding in width calculation */
+    z-index: 1000;             /* Ensure it stays on top */
 
     display: flex;
     justify-content: space-between; /*equal spacing between icons*/
@@ -16,6 +18,7 @@
 
     padding: 0 16px;           /*spacing from edges */
     background: #fff;
+    border-top: 1px solid #e0e0e0;  /* Add subtle border to distinguish */
   }
 
   .icon-item {
@@ -30,4 +33,3 @@
     color: #ff8000;
   }
 }
-
