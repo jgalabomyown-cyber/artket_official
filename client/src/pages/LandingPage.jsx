@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "../styles/layout.css"
 import TopNavbar from "../components/TopNavbar";
 import Sidebar from "../components/Sidebar";
+import MobileIconNav  from '../components/Mobile-Icon';
 
 const LandingPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -13,6 +14,7 @@ const LandingPage = () => {
   return (
     <div>
       <TopNavbar toggleSidebar={toggleSidebar} />
+      <MobileIconNav />
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       <div className="category-nav">
         <button className="active">ALL</button>
