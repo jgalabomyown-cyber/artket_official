@@ -12,10 +12,11 @@ const UserHomepage = () => {
   };
 
   return (
-    <div>
+    <div className="userplatform-container">
       <TopNavbar toggleSidebar={toggleSidebar} />
-      <MobileIconNav />
+      
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+      <MobileIconNav />
       <div className="category-nav">
         <button className="active">ALL</button>
         <button>GRAPHIC DESIGN</button>
@@ -103,34 +104,6 @@ const UserHomepage = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="introduction-video">
-        <div className="yt-video">
-          <iframe 
-            width="560" 
-            height="315"
-            src="https://www.youtube.com/embed/B3lNgtTs-eE?si=4936o24_Ga5lVR2E" 
-            title="YouTube video player" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerPolicy="strict-origin-when-cross-origin" 
-            allowFullScreen>
-          </iframe>
-
-          <div className="yt-video-btns">
-            <button className='explore-more-btn'>EXPLORE MORE</button>
-            <button className='advertise-btn'>START ADVERTISING</button>
-          </div>
-        </div>
-
-        <div className="video-summary">
-          <h1 className='video-title'>Discover <span className="highlighted">Uniqueness</span><br />
-          and <span className="highlighted">Enthusiasm</span></h1>
-          <p className='video-description'>&nbsp; &nbsp; &nbsp;We believe that, together we can make ART more valuable if we enrich every efforts
-          and popularize them here in <span className="pink-highlighted">Call Inside Art Studio</span>.
-          </p>
         </div>
       </div>
 
